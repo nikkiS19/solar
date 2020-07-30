@@ -1,0 +1,15 @@
+{% if user.is_authenticated%}
+
+<h2>Welcome Back,{{ user.username }} </h2>
+<!-- anytime u go to a url it is a get request-->
+<form action="{% url 'logoutuser' %}" method='POST'>
+{% csrf_token %}
+<button type="submit">Logout</button>
+</form>
+<h4>Take a look at the courses you haave enrolled in </h4>
+{% else %}
+
+<a href="{% url 'signupuser' %}">Sign Up</a>
+<a href="{% url 'loginuser' %}">Login</a>
+
+{% endif %}

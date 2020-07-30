@@ -1,0 +1,26 @@
+{% extends 'multipleuser/base.html' %}
+
+{% block content %}
+<h3 align='center'>Hope you have a great time here.</h3>
+<!-- for editing the videos uploaded for the instructor -->
+<ul>
+{% for course in course1 %}
+<a href={% url 'viewcourse' course.id %}
+<li>{{ course.title }}</li>
+<li> {{ course.files }}</li>
+{%  endfor  %}
+</ul> 
+{{ course.files }}
+<button onclick="myFunctionPrev()">Prev</button>
+<video class="vp1" width="320" height="240" controls>
+  <source id="s1"src="{{ course.files.first() }}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<button onclick="myFunctionNext()">Next</button>
+
+<script>
+var js_list = course.files.
+console.log(js_list)
+</script>
+
+{% endblock %}
